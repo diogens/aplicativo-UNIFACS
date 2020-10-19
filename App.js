@@ -1,9 +1,12 @@
-import React from 'react';
-import {Routes} from './src/routes'
+import React from "react";
+
+import Main from "./src/";
+import { AppContext } from "./src/context";
 
 export default function App() {
   return (
-    <Routes/>
-  )
+    <AppContext>
+      <Main />
+    </AppContext>
+  );
 }
-
