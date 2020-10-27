@@ -5,8 +5,11 @@
     "name": "appdefault",
     "slug": "appdefault",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "backgroundColor": "#000",
+      "image": "./assets/g56.png",
+      "resizeMode": "contain"
+    }
   }
 }
