@@ -25,9 +25,6 @@ export const Layout = ({ children, title, subtitle }) => {
           backgroundColor: colors.background,
         }}
       >
-        <Portal.Host>
-          <Text>Content of the app</Text>
-        </Portal.Host>
         {children}
       </View>
     </>

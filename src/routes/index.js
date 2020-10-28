@@ -2,9 +2,10 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
 import { Home } from "../screens";
+import { Cars } from '../screens/Cars'
 
 const Tab = createBottomTabNavigator();
 
@@ -32,29 +33,11 @@ export const Routes = () => {
           }}
         />
         <Tab.Screen
-          name="Home"
-          component={Home}
+          name="Cars"
+          component={Cars}
           options={{
             tabBarIcon: ({ size, color }) => (
-              <MaterialIcons name="alarm" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Home2"
-          component={Home}
-          options={{
-            tabBarIcon: ({ size, color }) => (
-              <MaterialIcons name="alarm" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Home3"
-          component={Home}
-          options={{
-            tabBarIcon: ({ size, color }) => (
-              <MaterialIcons name="alarm" color={color} size={size} />
+              <AntDesign name="car" color={color} size={size} />
             ),
           }}
         />
