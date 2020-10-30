@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
-import { Home, Herois } from "../screens";
+import { Git, Herois } from "../screens";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +24,7 @@ export const Routes = () => {
       >
         <Tab.Screen
           name="Contatos"
-          component={Home}
+          component={Git}
           options={{
             tabBarIcon: ({ size, color }) => (
               <MaterialIcons name="code" color={color} size={size} />
