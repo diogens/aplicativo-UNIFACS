@@ -4,10 +4,10 @@ import { Layout } from "../../components/";
 
 import { Context } from "../../context/";
 
-export const Home = () => {
+export const Herois = () => {
   return (
     <Layout>
-      <Text>Seu projeto</Text>
+      <Text>Seu projeto - Herois</Text>
     </Layout>
   );
 };

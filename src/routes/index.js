@@ -4,8 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
-import { Home } from "../screens";
-import { Cars } from '../screens/Cars'
+import { Home, Herois } from "../screens";
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +33,7 @@ export const Routes = () => {
         />
         <Tab.Screen
           name="SuperHeros"
-          component={Cars}
+          component={Herois}
           options={{
             tabBarIcon: ({ size, color }) => (
               <AntDesign name="star" color={color} size={size} />
