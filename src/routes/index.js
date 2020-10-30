@@ -33,11 +33,11 @@ export const Routes = () => {
           }}
         />
         <Tab.Screen
-          name="Cars"
+          name="SuperHeros"
           component={Cars}
           options={{
             tabBarIcon: ({ size, color }) => (
-              <AntDesign name="car" color={color} size={size} />
+              <AntDesign name="star" color={color} size={size} />
             ),
           }}
         />
