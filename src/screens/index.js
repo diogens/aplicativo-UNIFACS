@@ -1,2 +1,2 @@
 export * from "./Git";
-export * from "./Herois";
+export * from "./StarWars";

@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
-import { Git, Herois } from "../screens";
+import { Git, Starwars } from "../screens";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,8 +32,8 @@ export const Routes = () => {
           }}
         />
         <Tab.Screen
-          name="SuperHeros"
-          component={Herois}
+          name="StarWars"
+          component={Starwars}
           options={{
             tabBarIcon: ({ size, color }) => (
               <AntDesign name="star" color={color} size={size} />
