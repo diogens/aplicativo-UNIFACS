@@ -13,7 +13,6 @@ export const Layout = ({ children, title, subtitle }) => {
   const navigation = useNavigation();
   return (
     <>
-      <StatusBar backgroundColor="blue" />
       <Appbar.Header>
         <Appbar.BackAction
           onPress={() => {

@@ -32,7 +32,9 @@ export default function Main() {
   return (
     <PaperProvider theme={isDark ? darkTheme : lighTheme}>
       <StatusBar
-        backgroundColor={darkTheme.colors.background}
+        backgroundColor={
+          isDark ? darkTheme.colors.background : lighTheme.colors.background
+        }
         barStyle={isDark ? "light-content" : "dark-content"}
       />
       <Routes />
