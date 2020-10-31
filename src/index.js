@@ -14,8 +14,9 @@ const lighTheme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#3498db",
-    accent: "#f1c40f",
+    primary: "#f77f00",
+    accent: "#03dac4",
+    background: "#f6f6f6",
   },
 };
 

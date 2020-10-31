@@ -48,7 +48,7 @@ export const Git = () => {
   }
 
   return (
-    <Layout>
+    <Layout title="Seguidores do GitHub">
       <FlatList
         data={followers}
         renderItem={({ item }) => {

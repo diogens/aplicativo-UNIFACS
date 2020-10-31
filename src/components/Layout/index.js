@@ -19,7 +19,7 @@ export const Layout = ({ children, title, subtitle }) => {
             navigation.canGoBack();
           }}
         />
-        <Button
+        {/* <Button
           title="Btn"
           onPress={(e) => {
             console.log("oi", name);
@@ -31,7 +31,8 @@ export const Layout = ({ children, title, subtitle }) => {
               setName("Desligado");
             }
           }}
-        />
+        /> */}
+        <Appbar.Content title={title} subtitle={subtitle} />
         <Checkbox
           status={checked ? "checked" : "unchecked"}
           onPress={() => {
@@ -45,7 +46,6 @@ export const Layout = ({ children, title, subtitle }) => {
             }
           }}
         />
-        <Appbar.Content title={title} subtitle={subtitle} />
       </Appbar.Header>
       <View
         style={{
