@@ -42,7 +42,7 @@ export const Card = ({ title, subtitle, bio, avatar, html_url }) => {
         <Paragraph>{bio}</Paragraph>
       </Carder.Content>
       <Carder.Cover source={{ uri: avatar }} />
-      <Carder.Actions>
+      <Carder.Actions style={{ marginBottom: "100%" }}>
         <Carder.Content>
           <Chip icon="information" onPress={() => onShare()}>
             {html_url}
