@@ -38,7 +38,7 @@ export const Starwars = () => {
   }
 
   return (
-    <Layout title="Lista de Super Heróis">
+    <Layout title="Lista de Personagens do StarWars">
       <Container style={{ width: "100%" }}>
         <Content padder>
           <Accordion
