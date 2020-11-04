@@ -4,14 +4,14 @@ import { Button } from "react-native-paper";
 import { Container, Content, Accordion, Left } from "native-base";
 import { apiSw } from "../../services";
 import { Layout, Card as Box, UserList } from "../../components";
-// import { useContext } from "../../context";
+import { Context } from "../../context";
 
-const toUpperFirst = string => {
-  return string[0].toUpperCase() +
-    string.slice(1)
-}
+const toUpperFirst = (string) => {
+  return string[0].toUpperCase() + string.slice(1);
+};
 
 export const Starwars = () => {
+  const { isDark } = React.useContext(Context);
   const [sw, setSw] = React.useState([]);
   const [pageNum, setPageNum] = React.useState(1);
 
@@ -21,7 +21,7 @@ export const Starwars = () => {
       setSw(res.data.results);
     }
     getSw();
-  }, [])
+  }, []);
 
   async function getNextPage() {
     const res = await apiSw.get(`/people/?page=${pageNum}`);
@@ -42,15 +42,22 @@ export const Starwars = () => {
       <Container style={{ width: "100%" }}>
         <Content padder>
           <Accordion
+            style={
+              isDark ? { backgroundColor: "#000" } : { backgroundColor: "#fff" }
+            }
             dataArray={sw}
             renderHeader={(item) => {
               return (
                 <UserList
                   title={item.name}
-                  subtitle={item.birth_year == "unknown" ? "Ano de nascimento desconhecido" : "Ano de nascimento: " + item.birth_year}
+                  subtitle={
+                    item.birth_year == "unknown"
+                      ? "Ano de nascimento desconhecido"
+                      : "Ano de nascimento: " + item.birth_year
+                  }
                   avatar="https://icons-for-free.com/iconfiles/png/512/r2d2+robot+starwars+icon-1320166698566079188.png"
                 />
-              )
+              );
             }}
             renderContent={(item) => {
               return (
@@ -59,9 +66,14 @@ export const Starwars = () => {
                   <Text>Gender: {toUpperFirst(item.gender)}</Text>
                   <Text>Height: {toUpperFirst(item.height)} cm</Text>
                   <Text>Hair color: {toUpperFirst(item.hair_color)}</Text>
-                  <Text>Weight: {item.mass != "unknown" ? item.mass + " kg" : toUpperFirst(item.mass)}</Text>
+                  <Text>
+                    Weight:{" "}
+                    {item.mass != "unknown"
+                      ? item.mass + " kg"
+                      : toUpperFirst(item.mass)}
+                  </Text>
                 </View>
-              )
+              );
             }}
             expanded={0}
           />
@@ -69,14 +81,29 @@ export const Starwars = () => {
             <Text>Página {pageNum}</Text>
           </View>
           <View style={style.pageFilter}>
-            <Button mode="outlined" onPress={() => { getPreviousPage() }}>Previous</Button>
-            <Button mode="contained" icon="star" onPress={() => { getNextPage() }}>Next</Button>
+            <Button
+              mode="outlined"
+              onPress={() => {
+                getPreviousPage();
+              }}
+            >
+              Previous
+            </Button>
+            <Button
+              mode="contained"
+              icon="star"
+              onPress={() => {
+                getNextPage();
+              }}
+            >
+              Next
+            </Button>
           </View>
         </Content>
       </Container>
     </Layout>
   );
-}
+};
 
 const style = StyleSheet.create({
   userContainer: {
@@ -100,5 +127,5 @@ const style = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "flex-end",
     marginTop: 10,
-  }
-})
+  },
+});
