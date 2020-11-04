@@ -80,6 +80,10 @@ export const Git = () => {
             subtitle={user?.login}
             bio={user?.bio}
             html_url={user?.html_url}
+            location={user?.location}
+            public_repos={user?.public_repos}
+            following={user?.following}
+            followers={user?.followers}
           />
         )}
       </Modalize>

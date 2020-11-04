@@ -1,5 +1,6 @@
 import React from "react";
 import { Share } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 import {
   Avatar,
   Button,
@@ -8,9 +9,20 @@ import {
   Paragraph,
   Text,
   Chip,
+  Divider,
+  List,
 } from "react-native-paper";
 
-export const Card = ({ title, subtitle, bio, avatar, html_url }) => {
+export const Card = ({
+  title,
+  subtitle,
+  bio,
+  avatar,
+  html_url,
+  public_repos,
+  location,
+  followers,
+}) => {
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -42,11 +54,29 @@ export const Card = ({ title, subtitle, bio, avatar, html_url }) => {
         <Paragraph>{bio}</Paragraph>
       </Carder.Content>
       <Carder.Cover source={{ uri: avatar }} />
+      <Carder.Actions>
+        <FontAwesome size={30} name="heart" color="red" />
+        <Button>{followers}</Button>
+      </Carder.Actions>
       <Carder.Actions style={{ marginBottom: "100%" }}>
         <Carder.Content>
-          <Chip icon="information" onPress={() => onShare()}>
-            {html_url}
-          </Chip>
+          <Divider />
+          <List.Section>
+            <List.Subheader>Informações secretas</List.Subheader>
+            <List.Item
+              title={"Sou de " + location}
+              left={() => <List.Icon icon="folder" />}
+            />
+            <List.Item
+              title={"Tenho " + public_repos + " repositorios"}
+              left={() => <List.Icon icon="folder" />}
+            />
+          </List.Section>
+          <List.Section title="Compartilhe meu perfil :)">
+            <Chip icon="information" onPress={() => onShare()}>
+              {html_url}
+            </Chip>
+          </List.Section>
         </Carder.Content>
       </Carder.Actions>
     </Carder>
