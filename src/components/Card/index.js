@@ -1,6 +1,6 @@
 import React from "react";
 import { Share } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, SimpleLineIcons, Entypo } from "@expo/vector-icons";
 import {
   Avatar,
   Button,
@@ -22,6 +22,9 @@ export const Card = ({
   public_repos,
   location,
   followers,
+  following,
+  blog,
+  email,
 }) => {
   const onShare = async () => {
     try {
@@ -57,28 +60,49 @@ export const Card = ({
       <Carder.Actions>
         <FontAwesome size={30} name="heart" color="red" />
         <Button>{followers}</Button>
+
+        <SimpleLineIcons size={30} name="user-following" color="red" />
+        <Button>{following}</Button>
       </Carder.Actions>
-      <Carder.Actions style={{ marginBottom: "100%" }}>
-        <Carder.Content>
-          <Divider />
-          <List.Section>
-            <List.Subheader>Informações secretas</List.Subheader>
-            <List.Item
-              title={"Sou de " + location}
-              left={() => <List.Icon icon="folder" />}
-            />
-            <List.Item
-              title={"Tenho " + public_repos + " repositorios"}
-              left={() => <List.Icon icon="folder" />}
-            />
-          </List.Section>
-          <List.Section title="Compartilhe meu perfil :)">
-            <Chip icon="information" onPress={() => onShare()}>
-              {html_url}
-            </Chip>
-          </List.Section>
-        </Carder.Content>
-      </Carder.Actions>
+
+      <Divider />
+      <List.Section style={{ width: "100%", background: "red" }}>
+        <List.Subheader>Informações secretas</List.Subheader>
+        <List.Item
+          style="Local"
+          title={"Sou de " + location}
+          description={"Sou de " + location}
+          left={() => <List.Icon icon="rocket" />}
+        />
+        <List.Item
+          title="Repositório"
+          description={"Tenho " + public_repos + " repositorios"}
+          left={() => <List.Icon icon="sim" />}
+        />
+        <List.Item
+          title="Blog"
+          description={blog || "não tem"}
+          left={() => <List.Icon icon="web" />}
+        />
+        <List.Item
+          title="Email"
+          description={email || "não tem"}
+          left={() => <List.Icon icon="email" />}
+        />
+      </List.Section>
+      <List.Section title="Compartilhe meu perfil :)">
+        <Carder.Actions>
+          <Chip icon="information" onPress={() => onShare()}>
+            {html_url}
+          </Chip>
+          <Entypo
+            name="share"
+            size={24}
+            color="#fff"
+            onPress={() => onShare()}
+          />
+        </Carder.Actions>
+      </List.Section>
     </Carder>
   );
 };

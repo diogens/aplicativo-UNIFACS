@@ -80,6 +80,8 @@ export const Git = () => {
             subtitle={user?.login}
             bio={user?.bio}
             html_url={user?.html_url}
+            email={user?.email}
+            blog={user?.blog}
             location={user?.location}
             public_repos={user?.public_repos}
             following={user?.following}
