@@ -6,10 +6,17 @@
     "slug": "appdefault",
     "version": "1.0.0",
     "assetBundlePatterns": ["**/*"],
+    "androidStatusBar": {
+      "backgroundColor": "#00000",
+      "translucent": false
+    },
     "splash": {
-      "backgroundColor": "#000",
+      "backgroundColor": "#000000",
       "image": "./assets/g56.png",
       "resizeMode": "contain"
+    },
+    "android": {
+      "package": "com.diogenss9999.appdefault"
     }
   }
 }

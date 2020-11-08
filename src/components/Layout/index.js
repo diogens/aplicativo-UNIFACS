@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Context } from "../../context";
 import { StatusBar } from "expo-status-bar";
 
-export const Layout = ({ children, title, subtitle }) => {
+export const Layout = ({ children, title, subtitle, func }) => {
   const { name, setName, isDark, setIsDark } = React.useContext(Context);
   const { dark, colors, mode } = useTheme();
   const [checked, setChecked] = React.useState(false);
@@ -16,7 +16,8 @@ export const Layout = ({ children, title, subtitle }) => {
       <Appbar.Header>
         <Appbar.BackAction
           onPress={() => {
-            navigation.canGoBack();
+            navigation.navigate("Contatos");
+            console.log("09");
           }}
         />
         {/* <Button
